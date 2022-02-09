@@ -7,7 +7,7 @@ class User{
     public function __construct(string $login, string $password){
         $this->login = $login;
         $this->password = $password;
-        $this->pdo = new PDO('mysql:host=localhost;dbname=mozok499_student', "mozok499_student", "mU1aH8sF");
+        $this->pdo = new PDO('mysql:host=localhost;dbname=todolist', "root", "");
         $this->form = [];
     }
 
