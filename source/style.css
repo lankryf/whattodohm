@@ -1,0 +1,214 @@
+body {
+    background-image: url("./bg.jpg");
+    color: #5167FF;
+    background-attachment: fixed;
+
+}
+
+
+.logo{
+    font-family: "Cavorting";
+    font-size: 100px;
+    color: #5167FF;
+    text-align: center;
+    margin-top: 2px;
+    animation: logo 3s 1;
+}
+
+#maintable{
+    margin: auto;
+    /* border: 3px solid grey; */
+    
+}
+#logintable{
+
+    margin: auto;
+    /* border: 3px solid grey; */
+    text-align: center;
+}
+
+
+.errortext{
+    opacity: 0;
+    font-family: "Adigiana_Extreme";
+    font-size: 30px;
+    color: #A52961;
+    text-align: center;
+    animation: error 5s 1;
+}
+
+.littleInputPole{
+    word-spacing: 10px;
+    color: #5167FF;
+    height: 30px;
+    margin-bottom: 40px;
+    font-family: "Adigiana_Extreme";
+    font-size: 30px;
+    padding:5px;
+    border-radius:20px;
+    border-width: 0px;
+    box-shadow: 3px 5px 5px #263268;
+    background-color: #ffffff74;
+    animation: items2 2s 1;
+}
+
+.littleInputPole:hover{
+    box-shadow: 0 10px 20px rgba(169, 99, 255, 0.6);
+    transform: translateY(-2px);
+}
+
+
+.littleInputPole#todoinput{
+    width: 424px;
+}
+
+.littleInputPole#password{
+    width: 200px;
+
+}
+
+.littleInputPole#login{
+    width: 200px;
+
+}
+
+
+.customButton {
+    margin-top: 2px;
+    text-decoration: none;
+    display: inline-block;
+    height: 42px;
+    border-radius: 45px;
+    font-family: "Cavorting";
+    text-transform: uppercase;
+    text-align: center;
+    
+    font-weight: 600;
+    color: #FCF9FF;
+    background-image: linear-gradient(to right, #A8CFF5 0%, #F1ADDA 100%);
+    box-shadow: 3px 5px 5px #263268;
+    transition: .3s;
+	user-select: none; 
+  }
+.customButton:hover {
+    background: #5167FF;
+    
+    box-shadow: 0 10px 20px rgba(169, 99, 255, 0.6);
+}
+
+.customButton#buttSignUp{
+    letter-spacing: 3px;
+    font-size: 16px;
+    line-height: 45px;
+    width: 140px;
+    animation: items 2s 1;
+    margin-right: 5px;
+}
+
+.customButton#buttLogin{
+    letter-spacing: 3px;
+    font-size: 16px;
+    line-height: 45px;
+    width: 140px;
+    animation: items 2s 1;
+    margin-left: 5px;
+}
+
+
+
+
+
+
+.customButton#buttplus{
+    margin-left: 12px;
+    margin-bottom: 40px;
+    width: 42px;
+    font-size: 60px;
+    filter: drop-shadow(3px 5px 5px #263268);
+    animation: items 2s 1;
+}
+
+
+
+.textpole{
+    font-family: "Adigiana_Extreme";
+    background-color: #dfe5ff;
+    color: #5167FF;
+    font-size: 50px;
+    width: 450px;
+    word-spacing: 10px;
+    word-wrap: break-word;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius:70px;
+    border-width: 0px;
+    box-shadow: 3px 5px 5px #263268;
+    margin-bottom: 0px;
+    animation: items 1s 1;
+    line-height: 40px;
+
+}
+
+
+
+
+@font-face {
+    font-family: "Cavorting"; 
+    src: url("./Cavorting.otf") format("truetype"); 
+    font-style: normal; 
+    font-weight: normal; 
+}
+
+@font-face {
+    font-family: "Adigiana_Extreme"; 
+    src: url("./Adigiana_Extreme.ttf") format("truetype"); 
+    font-style: normal; 
+    font-weight: normal; 
+}
+
+@keyframes logo {
+    0%{
+        opacity: 0;
+        
+    }
+    50%{
+        letter-spacing: 2px;
+    }
+}
+
+
+@keyframes items {
+    0%{
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    60%{
+        transform: translateY(6px);
+    }
+
+}
+
+@keyframes items2 {
+    0%{
+        opacity: 0;
+    }
+}
+
+
+@keyframes error {
+
+    5%{
+        opacity: 1;
+        transform: translateY(-10px);
+    }
+    10%{
+        transform: translateY(0px);
+    }
+    80%{
+        opacity: 1;
+    }
+
+}
