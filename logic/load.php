@@ -2,14 +2,13 @@
     spl_autoload_register(function ($className) {
         require_once __DIR__ . "/lib/" . $className . ".php";
     });
-    session_start();
 
-    $u = new user();
-   
-    $u->loadForm();
-
-
-    $json = json_encode($u->form);
+    $u = new user($_POST["login"], $_POST["password"]);
+    $form = [];
+    if ($u->search()){
+        $form = $u->form;
+    }
+    $json = json_encode($form);
 ?>
 
 

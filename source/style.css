@@ -1,5 +1,5 @@
 body {
-    background-image: url("./images/bg.jpg");
+    background-image: url("./bg.jpg");
     color: #5167FF;
     background-attachment: fixed;
 
@@ -15,12 +15,10 @@ body {
     animation: logo 3s 1;
 }
 
-
 #maintable{
     margin: auto;
-    /* width: 80%; */
     /* border: 3px solid grey; */
-    /* text-align: center; */
+    
 }
 #logintable{
 
@@ -42,7 +40,7 @@ body {
 .littleInputPole{
     word-spacing: 10px;
     color: #5167FF;
-    height: 40px;
+    height: 30px;
     margin-bottom: 40px;
     font-family: "Adigiana_Extreme";
     font-size: 30px;
@@ -61,7 +59,7 @@ body {
 
 
 .littleInputPole#todoinput{
-    width: 450px;
+    width: 424px;
 }
 
 .littleInputPole#password{
@@ -90,11 +88,7 @@ body {
     background-image: linear-gradient(to right, #A8CFF5 0%, #F1ADDA 100%);
     box-shadow: 3px 5px 5px #263268;
     transition: .3s;
-	user-select: none;
-    letter-spacing: 3px;
-    font-size: 16px;
-    line-height: 45px;
-    animation: items 2s 1;
+	user-select: none; 
   }
 .customButton:hover {
     background: #5167FF;
@@ -103,32 +97,35 @@ body {
 }
 
 .customButton#buttSignUp{
+    letter-spacing: 3px;
+    font-size: 16px;
+    line-height: 45px;
     width: 140px;
+    animation: items 2s 1;
     margin-right: 5px;
 }
 
 .customButton#buttLogin{
+    letter-spacing: 3px;
+    font-size: 16px;
+    line-height: 45px;
     width: 140px;
+    animation: items 2s 1;
     margin-left: 5px;
-    
 }
 
 
-.customButton#buttLogout{
-    width: 20px;
-    height: 20px;
-    padding: 10px;
-    animation: itemsr 2s 1;
-    position:static;
-    text-align: center;
-}
+
 
 
 
 .customButton#buttplus{
     margin-left: 12px;
     margin-bottom: 40px;
-    width: 40px;
+    width: 42px;
+    font-size: 60px;
+    filter: drop-shadow(3px 5px 5px #263268);
+    animation: items 2s 1;
 }
 
 
@@ -149,7 +146,7 @@ body {
     border-radius:70px;
     border-width: 0px;
     box-shadow: 3px 5px 5px #263268;
-    margin-bottom: 26px;
+    margin-bottom: 0px;
     animation: items 1s 1;
     line-height: 40px;
 
@@ -160,14 +157,14 @@ body {
 
 @font-face {
     font-family: "Cavorting"; 
-    src: url("./fonts/Cavorting.otf") format("truetype"); 
+    src: url("./Cavorting.otf") format("truetype"); 
     font-style: normal; 
     font-weight: normal; 
 }
 
 @font-face {
     font-family: "Adigiana_Extreme"; 
-    src: url("./fonts/Adigiana_Extreme.ttf") format("truetype"); 
+    src: url("./Adigiana_Extreme.ttf") format("truetype"); 
     font-style: normal; 
     font-weight: normal; 
 }
@@ -193,20 +190,6 @@ body {
     }
 
 }
-
-@keyframes itemsr {
-    0%{
-        opacity: 0;
-        transform: translateX(30px);
-    }
-    80%{
-        transform: translateX(-4px);
-    }
-
-}
-
-
-
 
 @keyframes items2 {
     0%{
