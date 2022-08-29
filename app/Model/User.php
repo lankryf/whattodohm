@@ -24,26 +24,30 @@ class User{
         }
         $stmt = $this->pdo->prepare("SELECT * FROM lexa_todolist WHERE login = ? LIMIT 1");
         $stmt->execute([$login]);
-        return $this->login($stmt->fetchAll(), $password, $createNew);
-    }
-
-    public function loginWithId($id, $password, $createNew=false)
-    {
-        $stmt = $this->pdo->prepare("SELECT * FROM lexa_todolist WHERE id = ? LIMIT 1");
-        $stmt->execute([$id]);
-        return $this->login($stmt->fetchAll(), $password, $createNew);
-    }
-
-
-
-    private function login($data, $password, $createNew){
+        $data = $stmt->fetchAll();
 
         if (!$data and $createNew){
             $this->add($login, $password);
             return [true, 0];
         }
+        if($createNew){
+            return [false, 1];
+        }
 
-        if ($data and !$createNew){
+        return $this->login($data, $password);
+    }
+
+    public function loginWithId($id, $password)
+    {
+        $stmt = $this->pdo->prepare("SELECT * FROM lexa_todolist WHERE id = ? LIMIT 1");
+        $stmt->execute([$id]);
+        return $this->login($stmt->fetchAll(), $password);
+    }
+
+
+
+    private function login($data, $password){
+        if ($data){
             if (password_verify($password, $data[0]["password"])){
                 if ($data[0]["form"] != ""){
                     $this->form = explode("\n", $data[0]["form"]);
@@ -53,9 +57,6 @@ class User{
                 return [true, 0];
             }
             return [false, 3];
-        }
-        if($createNew){
-            return [false, 1];
         }
         return [false, 2];
         
