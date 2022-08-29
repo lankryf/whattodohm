@@ -1,16 +1,19 @@
 <?php
+namespace App\Model;
 
 class User{
+    private $pdo;
+    public $form;
 
     public function __construct(){
-        $this->pdo = new PDO('mysql:host=localhost;dbname=todolist', "root", "");
-        $this->form= [];
+        $config = include('.\configs\DB.php');
+        $this->pdo = new \PDO(...$config['pdo']);
+        $this->form=[];
     }
 
 
-
-
-    public function login($login, $password, $createNew=false){
+    public function loginWithLogin($login, $password, $createNew=false)
+    {
         $bufflen = strlen($login);
         if ($bufflen < 4 or $bufflen > 40){
             return [false, 4];
@@ -19,11 +22,22 @@ class User{
         if ($bufflen < 4){
             return [false, 5];
         }
-
         $stmt = $this->pdo->prepare("SELECT * FROM lexa_todolist WHERE login = ? LIMIT 1");
         $stmt->execute([$login]);
-        $data = $stmt->fetchAll();
-        
+        return $this->login($stmt->fetchAll(), $password, $createNew);
+    }
+
+    public function loginWithId($id, $password, $createNew=false)
+    {
+        $stmt = $this->pdo->prepare("SELECT * FROM lexa_todolist WHERE id = ? LIMIT 1");
+        $stmt->execute([$id]);
+        return $this->login($stmt->fetchAll(), $password, $createNew);
+    }
+
+
+
+    private function login($data, $password, $createNew){
+
         if (!$data and $createNew){
             $this->add($login, $password);
             return [true, 0];
@@ -48,6 +62,14 @@ class User{
 
     }
 
+    public function checkSession() {
+        if (!array_key_exists('id', $_SESSION) or !array_key_exists('password', $_SESSION)){
+            $_SESSION = [];
+            header('Location: /whattodohm/login');
+            return false;
+        }
+        return self::loginWithId($_SESSION['id'], $_SESSION['password'])[0];
+    }
 
     
 

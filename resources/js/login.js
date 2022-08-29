@@ -1,10 +1,11 @@
 
 $('#buttSignUp').on('click', function(){getDetails(1)});
 $('#buttLogin').on('click', function(){getDetails(0)});
+
 function getDetails(type){
     $.ajax({
         type: "POST",
-        url: "./model/login.php",
+        url: "/whattodohm/loginconfirm",
         data: {
             type: type,
             login: $('#login').val(),
@@ -13,13 +14,16 @@ function getDetails(type){
 
         
         success: function( result ) {
-            $("#todomain").html(result);
+            // $("#todomain").html(result)
+            result = JSON.parse(result)
+            if (result[0] === true){
+                window.location.replace("/whattodohm/");
+            } else {
+                $("#todomain").html('<p class="errortext">'+ result[1] + '</p>');
+            } 
+            
+
         }
 
-        
         });
 }
-
-
-
-

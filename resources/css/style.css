@@ -1,5 +1,5 @@
 body {
-    background-image: url("./images/bg.jpg");
+    background-image: url("../../public/images/bg.jpg");
     color: #5167FF;
     background-attachment: fixed;
 
@@ -160,14 +160,14 @@ body {
 
 @font-face {
     font-family: "Cavorting"; 
-    src: url("./fonts/Cavorting.otf") format("truetype"); 
+    src: url("../../public/fonts/Cavorting.otf") format("truetype"); 
     font-style: normal; 
     font-weight: normal; 
 }
 
 @font-face {
     font-family: "Adigiana_Extreme"; 
-    src: url("./fonts/Adigiana_Extreme.ttf") format("truetype"); 
+    src: url("../../public/fonts/Adigiana_Extreme.ttf") format("truetype"); 
     font-style: normal; 
     font-weight: normal; 
 }

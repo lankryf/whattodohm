@@ -1,7 +1,6 @@
 $("#logintable").hide();
 $('#login').val("");
 $('#password').val("");
-$("body").prepend('<img id="buttLogout" class="customButton" src="./view/images/arrow.png">')
 
 
 
@@ -53,46 +52,29 @@ function inpBlock(){
 function userUpdate(action, value){
     $.ajax({
         type: "POST",
-        url: "./model/update.php",
+        url: "/whattodohm/update",
         data: {
             action: action,
             value: value,
-        },
-        success: function( result ) {
-            $("#console").html(result);
         }
-        
     });
 }
 
 function loadForm(){
+    
     $.ajax({
-        type: "POST",
-        url: "./model/load.php",
+        type: "GET",
+        url: "/whattodohm/load",
 
         
         success: function( result ) {
-            $("#console").html(result);
+            var form = JSON.parse(result)
+            for (var key in form) {
+                createBlock(form[key]);
+            }
         }
 
         
     });
 }
 
-
-$('#buttLogout').on('click',function(){
-    $.ajax({
-        type: "POST",
-        url: "index.php",
-
-        data: {
-            logout: 1
-        },
-        
-        success: function( result ) {
-            $("body").html(result);
-        }
-
-        
-    });
-});
